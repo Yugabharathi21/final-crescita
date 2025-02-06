@@ -8,7 +8,7 @@ interface NewComponentProps {
 const NewComponent: React.FC<NewComponentProps> = ({ text, className = '' }) => {
   return (
     <div className={`glitch-container ${className}`}>
-      <h1 className="glitch-text text-6xl font-bold mb-4" data-text={text}>
+      <h1 className="glitch-text text-[4rem] font-bold mb-4" data-text={text}>
         {text}
       </h1>
       <style jsx>{`

@@ -18,8 +18,7 @@ const WorkshopEventModal = ({ event, closeModal }) => {
       <button         
         onClick={closeModal}         
         className="absolute top-4 right-4 text-2xl"       
-      >         
-        <CloseIcon />       
+      >                
       </button>       
       <h3 className="text-2xl font-bold mb-4 glitch-text">{event.title}</h3>       
       <p className="text-[#2ec427] mb-4">{event.type}</p>              

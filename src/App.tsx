@@ -68,11 +68,6 @@ const [showLoadingPopup, setShowLoadingPopup] = useState(false);
 type EventType = {
   title: string;
   type: string;
-  prize: {
-    first: string;
-    second: string;
-    third: string;
-  };
   deadline: string;
   details?: string;
   guidelines?: string[];
@@ -93,14 +88,9 @@ const technicalEvents: EventType[] = [
   {
     title: "Think Tank Talk",
     type: "Paper Presentation",
-    prize: {
-      first: "₹1500",
-      second: "₹1000",
-      third: "₹500",
-    },
     deadline: "26th February 2025",
     details:
-      "Paper presentation is about how you put your topic and present your ideas, the ideas that invokes the best results will be appreciated and awarded.",
+      "Think Tank Talk is about how you put your topic and present your ideas, the ideas that invokes the best results will be appreciated and awarded.",
     guidelines: [
       "Members: Maximum 3 per Team",
       "Abstract must be uploaded during registration",
@@ -125,14 +115,9 @@ const technicalEvents: EventType[] = [
   {
     title: "Visionary Venturer",
     type: "Project Presentation",
-    prize: {
-      first: "₹1500",
-      second: "₹1000",
-      third: "₹500",
-    },
     deadline: "26th February 2025",
     details:
-      "Project presentation is the platform to expose your innovative ideas and have a chance to Change the world of creativity into reality",
+      "Visionary Venturer is the platform to expose your innovative ideas and have a chance to Change the world of creativity into reality",
     guidelines: [
       "Each team should consist of a maximum of 3 members per team",
       "Presentation duration should not exceed 7 mins",
@@ -143,29 +128,18 @@ const technicalEvents: EventType[] = [
   {
     title: "Codex",
     type: "Coding Event",
-    prize: {
-      first: "₹1500",
-      second: "₹1000",
-      third: "₹500",
-    },
     deadline: "26th February 2025",
     details:
-      "Programming is not just about what you know. It's about what you can do with what you know. Byte Grable is filled with competitive programming challenges made to unleash your coding skills. Code and debug your path to a proper result and ascend to the next level. The power of coding is infinite!",
+      "Programming is not just about what you know. It's about what you can do with what you know. Codex is filled with competitive programming challenges made to unleash your coding skills. Code and debug your path to a proper result and ascend to the next level. The power of coding is infinite!",
     guidelines: [
       "It's an individual event",
       "Preliminary Round will be conducted before the event day through HackerRank",
-      "It will be based on hacker rank or hacker earth platform",
       "Results based on hackerrank leaderboard (no of test cases solved + time taken)",
     ],
   },
   {
     title: "Frame by Frame",
     type: "Image Prompt",
-    prize: {
-      first: "₹1500",
-      second: "₹1000",
-      third: "₹500",
-    },
     deadline: "1st March 2025",
     details:
       "In this event, participants were tasked with generating an image similar to a displayed reference by crafting accurate prompts to an AI tool. With a limited timeframe, the challenge tested their creativity, prompt engineering skills, and quick thinking, making it an engaging and insightful experience for all.",
@@ -174,11 +148,6 @@ const technicalEvents: EventType[] = [
   {
     title: "Quantum Quest",
     type: "Technical Quiz",
-    prize: {
-      first: "₹1500",
-      second: "₹1000",
-      third: "₹500",
-    },
     deadline: "1st March 2025",
     details:
       "Quantum Quest is a game based on engineering themes, principles, technical words, and universally acknowledged facts designed to test your vocabulary, creativity, and quick thinking as you link one clue to another. Get ready for a roller coaster ride into the intense world of techno sparks",
@@ -218,11 +187,6 @@ const nonTechnicalEvents: EventType[] = [
   {
     title: "Adventure Awaits",
     type: "Treasure Hunt",
-    prize: {
-      first: "₹1000",
-      second: "₹750",
-      third: "₹500",
-    },
     deadline: "26 February 2025",
     details:
       "Embark on a thrilling adventure as you join our treasure hunt, where clues weave a tale of mystery and excitement. Navigate through challenges, decode riddles, and uncover hidden treasures in a quest that blends intellect with exhilaration.",
@@ -236,11 +200,6 @@ const nonTechnicalEvents: EventType[] = [
   {
     title: "Lens Legacy",
     type: "Photography",
-    prize: {
-      first: "₹1000",
-      second: "₹750",
-      third: "₹500",
-    },
     deadline: "26 February 2025",
     details: "Capture moments that tell stories through your lens",
     guidelines: [
@@ -252,23 +211,8 @@ const nonTechnicalEvents: EventType[] = [
     ],
   },
   {
-    title: "Crossword Craze",
-    type: "Sudoku",
-    prize: {
-      first: "₹1000",
-      second: "₹750",
-      third: "₹500",
-    },
-    deadline: "26 February 2025",
-  },
-  {
     title: "Survivor Showdown",
     type: "E-game",
-    prize: {
-      first: "₹1000",
-      second: "₹750",
-      third: "₹500",
-    },
     deadline: "26 February 2025",
     details:
       "Dive into the virtual battleground of our gaming event, where skill and strategy collide for an adrenaline-fueled experience. Join fellow gamers in a competitive arena, where victories are celebrated and camaraderie reigns supreme.",
@@ -421,24 +365,12 @@ const WorkshopEventModal = ({ event, closeModal }) => {
 
 const GeneralEventModal = ({ event, closeModal }) => {   
   return (     
-    <div className="modern-card max-w-2xl w-full p-8 relative">       
-      <button         
-        onClick={closeModal}         
-        className="absolute top-4 right-4 text-2xl hover:text-[#2ec427]"       
-      >         
-        <CloseIcon />       
-      </button>       
+    <div className="modern-card max-w-2xl w-full p-8 relative">             
+       <p className="text-[#2ec427] text-[15px]">To close the card, click anywhere outside of it.</p>   
+       <br></br>       
       <div className="max-h-[500px] overflow-y-auto pr-4">
         <h3 className="text-2xl font-bold mb-4 glitch-text">{event.title}</h3>       
         <p className="text-[#2ec427] mb-4">{event.type}</p>              
-        
-        {/* Prize Pool */}       
-        <div className="mb-4">         
-          <h4 className="text-lg font-bold mb-2">Prize Pool:</h4>         
-          <p>1st Prize: {event.prize?.first || "N/A"}</p>         
-          <p>2nd Prize: {event.prize?.second || "N/A"}</p>         
-          <p>3rd Prize: {event.prize?.third || "N/A"}</p>         
-        </div>        
         
         {/* Registration Deadline */}       
         <p className="mb-4">         
@@ -480,7 +412,6 @@ const GeneralEventModal = ({ event, closeModal }) => {
     </div>   
   ); 
 }; 
-
   return (
     
     <div className="min-h-screen bg-[#031e11] text-[#14fdce] font-share-tech-mono overflow-x-hidden relative pip-screen">
@@ -536,7 +467,7 @@ const GeneralEventModal = ({ event, closeModal }) => {
 
       {/* Rest of your existing JSX */}
       {/* ... */}{showLoadingPopup && (
-  <div className="fixed inset-0 bg-black flex items-center justify-center z-[100]">
+    <div className="fixed inset-0 bg-black flex items-center justify-center z-[100]">
     <div className="crt-monitor">
       <div className="crt-screen">
         <div className="crt-effects">
@@ -547,13 +478,9 @@ const GeneralEventModal = ({ event, closeModal }) => {
         
         <div className="content-wrapper">
           <div className="logo-section mb-8">
-            <img
-              src={vaultlogo}
-              alt="Vault-Tec Logo"
-              className="w-32 h-32 mx-auto mb-4 flicker-glow"
-            />
             <div className="ascii-art text-center">
               <pre className="text-[#2ec427] text-xs md:text-sm">
+                
                 ░█████╗░██████╗░███████╗░██████╗░█████╗░██╗████████╗░█████╗░  ██████╗░██╗░░██╗██████╗░███████╗
                 {"\n"}
                 ██╔══██╗██╔══██╗██╔════╝██╔════╝██╔══██╗██║╚══██╔══╝██╔══██╗  ╚════██╗██║░██╔╝╚════██╗██╔════╝
@@ -568,13 +495,12 @@ const GeneralEventModal = ({ event, closeModal }) => {
               </pre>
             </div>
           </div>
-
           <div className="terminal-section">
             <div className="terminal-header mb-4">
               <div className="status-bar flex justify-center gap-6">
-                <span className="status-item glitch-text">CPU: NOMINAL</span>
-                <span className="status-item glitch-text">MEM: 64K</span>
-                <span className="status-item glitch-text">SIGNAL: STRONG</span>
+                <span className="status-item glitch-text">CPU: OVERCLOCKED</span>
+                <span className="status-item glitch-text">MEM: 128K</span>
+                <span className="status-item glitch-text">SIGNAL: MAX</span>
               </div>
             </div>
             
@@ -626,7 +552,7 @@ const GeneralEventModal = ({ event, closeModal }) => {
       <pre>{"\n"}</pre>
       <pre>{"\n"}</pre>
       {/* Home Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative">
+      <section id="home" className="min-h-screen flex items-center justify-center relative pt-20">
   <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] to-transparent pointer-events-none" />
   <div className="text-center z-10">
     <div className="mb-8">
@@ -677,13 +603,24 @@ const GeneralEventModal = ({ event, closeModal }) => {
               <h3 className="text-xl font-bold mb-4 text-center">
                 Kongu Engineering College
               </h3>
-              <p className="text-sm">
-                Kongu Engineering College affiliated to Anna University is
-                located in Perundurai, Erode. It is accredited 'A++' grade by
-                National Assessment Accreditation Council. Over the past 40
-                years the institution with its good infrastructure facility and
-                excellent academic records has emerged as a center of
-                excellence.
+              <p className="text-sm text-justify">Kongu Engineering College was established in the year 
+1984, approved by AICTE, New Delhi, accredited by NAAC for 
+5 years with the grade of “A++” and an autonomous institution 
+affiliated to Anna University, Chennai. The institution has 
+completed 40 years of dedicated and excellent service in the field 
+of technical education. It offers 14 UG, 6 PG and 16 Research 
+programmes in Engineering, Applied Science and Management 
+imparting high quality value education in India. It is one of the 
+best self financing engineering colleges imparting high quality 
+technical education  in Tamil Nadu, India, and is well-known for 
+its technical excellence, modern facilities, record of performance 
+with excellent results and enterprising students, 2nd Position 
+among Self Financing Engineering Colleges in Tamilnadu, 9th 
+position in top Engineering colleges of super excellence and 64th 
+position among 126 top Engineering Colleges in India including 
+(IITs and NITs) in Competition Success Review (CSR). Kongu 
+Engineering College has been awarded Swachha campus ranking 
+for the year 2019 by AICTE.
               </p>
             </div>
             <div className="modern-card p-6">
@@ -695,7 +632,7 @@ const GeneralEventModal = ({ event, closeModal }) => {
                     />
               </div>
               <h3 className="text-xl font-bold mb-4 text-center">Crescita</h3>
-              <p className="text-sm">
+              <p className="text-sm text-justify">
                 Crescita is a national-level symposium conducted every year by
                 the Computer Science and Engineering department of Kongu
                 Engineering College. Crescita, a great platform to showcase your
@@ -715,12 +652,23 @@ const GeneralEventModal = ({ event, closeModal }) => {
               <h3 className="text-xl font-bold mb-4 text-center">
                 Department of Computer Science and Engineering
               </h3>
-              <p className="text-sm">
-                The department of Computer Science and Engineering holding
-                nearly 700 students has been successfully achieving its goal of
-                identifying and appreciating the unique talents. The department
-                is constantly striving to provide the best academics to empower
-                the practical knowledge of students.
+              <p className="text-sm text-justify">
+              Department of CSE was started in the year 1988 with 
+B.E. programme. With the increasing demand in Computer 
+Science and Engineering, M.E programme was started in the year 
+1999.  The department is recognized to offer research programme 
+leading to Ph.D. The department aims at developing intellectually 
+alert, scientifically progressive, globally competent and dynamic 
+young IT professionals. Right from its inception it is continuously 
+striving to impart quality education and promoting competitive 
+spirit among students for academic excellence. The department 
+has well equipped laboratories, good infrastructure, highly 
+qualified and experienced faculty.
+<br/>
+The department has signed 
+MOUs with various organizations to provide real time training to 
+the students. The department was sanctioned FDP under various 
+schemes and was successfully executed.
               </p>
             </div>
           </div>
@@ -733,43 +681,40 @@ const GeneralEventModal = ({ event, closeModal }) => {
           
         </div>
       </section>
-
+<center>
       {/* Events Section */}
-      <section id="events" className="py-16 bg-[#0a0a0a]">
+      <section id="events" className="py-16 bg-[#0a0a0a] ">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-center glitch-text">
             Technical Events
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {technicalEvents.map((event, index) => (
-              <div
-                key={index}
-                className="modern-card p-6 cursor-pointer hover:transform hover:scale-105 transition-transform duration-300"
-                onClick={() => handleEventClick(event)}
-              >
-                <h3 className="text-xl font-bold mb-2">{event.title}</h3>
-                <p className="text-[#2ec427] mb-2">{event.type}</p>
-                <p className="mb-2">First Prize: {event.prize.first}</p>
-                <p className="text-sm text-[#2ec427]/60">
-                  Deadline: {event.deadline}
-                </p>
-              </div>
-            ))}
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 place-items-center">
+  {technicalEvents.map((event, index) => (
+    <div
+      key={index}
+      className="modern-card p-6 cursor-pointer hover:transform hover:scale-105 transition-transform duration-300 w-full max-w-[350px]"
+      onClick={() => handleEventClick(event)}
+    >
+      <h3 className="text-xl font-bold mb-2">{event.title}</h3>
+      <p className="text-[#2ec427] mb-2">{event.type}</p>
+      <p className="text-sm text-[#2ec427]/60">
+        Deadline: {event.deadline}
+      </p>
+    </div>
+  ))}
+</div>
 
           <h2 className="text-4xl font-bold mb-12 text-center glitch-text">
             Non-Technical Events
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {nonTechnicalEvents.map((event, index) => (
-              <div
-                key={index}
-                className="modern-card p-6 cursor-pointer hover:transform hover:scale-105 transition-transform duration-300"
-                onClick={() => handleEventClick(event)}
-              >
+          </h2><div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 place-items-center">
+  {nonTechnicalEvents.map((event, index) => (
+    <div
+      key={index}
+      className="modern-card p-6 cursor-pointer hover:transform hover:scale-105 transition-transform duration-300 w-full max-w-[350px]"
+      onClick={() => handleEventClick(event)}
+    >
                 <h3 className="text-xl font-bold mb-2">{event.title}</h3>
                 <p className="text-[#2ec427] mb-2">{event.type}</p>
-                <p className="mb-2">First Prize: {event.prize.first}</p>
                 <p className="text-sm text-[#2ec427]/60">
                   Deadline: {event.deadline}
                 </p>
@@ -793,17 +738,24 @@ const GeneralEventModal = ({ event, closeModal }) => {
       </div>
         </div>
       </section>
-
-      {/* Event Details Modal */}{selectedEvent && (
-  <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-  {selectedEvent.type === "Workshop" ? (
-    <WorkshopEventModal event={selectedEvent} closeModal={closeEventDetails} />
-  ) : (
-    <GeneralEventModal event={selectedEvent} closeModal={closeEventDetails} />
-  )}
+      {selectedEvent && (
+  <div 
+  className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+  onClick={closeEventDetails} // Close when clicking outside
+>
+  <div 
+    className="relative" 
+    onClick={(e) => e.stopPropagation()} // Prevent modal click from closing it
+  >
+    {selectedEvent.type === "Workshop" ? (
+      <WorkshopEventModal event={selectedEvent} closeModal={closeEventDetails} />
+    ) : (
+      <GeneralEventModal event={selectedEvent} closeModal={closeEventDetails} />
+    )}
+  </div>
 </div>
 )}
-
+</center>
 
 <RegistrationPopup />
 
